@@ -1,0 +1,24 @@
+void CMyView::OnDraw(CDC* pDC)
+{
+    // 사각형 그리기
+    pDC->Rectangle(10, 10, 100, 100);
+
+    // 타원 그리기
+    pDC->Ellipse(120, 10, 210, 100);
+
+    // 글씨 쓰기
+    pDC->TextOut(10, 120, _T("Hello, MFC"));
+
+    // 선 그리기
+    pDC->MoveTo(10, 150);
+    pDC->LineTo(100, 150);
+
+    // 다각형 그리기
+    CPoint points[5] = { {120, 150}, {170, 200}, {220, 150}, {170, 100}, {120, 150} };
+    pDC->Polygon(points, 5);
+
+    // 비트맵 그리기 (간단히 흰색 사각형으로 대체)
+    CBrush brush(RGB(255, 255, 255));
+    CRect rect(10, 220, 100, 310);
+    pDC->FillRect(&rect, &brush);
+}
