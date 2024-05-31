@@ -1,0 +1,29 @@
+#include <GL/glut.h>
+
+void display() {
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    
+    // 구 그리기
+    glColor3f(1.0, 0.0, 0.0); // 빨간색
+    glutSolidSphere(1.0, 50, 50); // 구
+
+    glFlush();
+    glutSwapBuffers();
+}
+
+void init() {
+    glClearColor(0.0, 0.0, 0.0, 1.0);
+    glEnable(GL_DEPTH_TEST);
+}
+
+int main(int argc, char** argv) {
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+    glutInitWindowSize(500, 500);
+    glutCreateWindow("OpenGL Sphere");
+
+    init();
+    glutDisplayFunc(display);
+    glutMainLoop();
+    return 0;
+}
